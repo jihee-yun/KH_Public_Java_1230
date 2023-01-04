@@ -7,5 +7,6 @@ public class MemberInfo {
         member.setAge();
         member.setGender();
 
+
     }
 }
