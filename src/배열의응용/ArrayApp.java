@@ -8,7 +8,7 @@ public class ArrayApp {
     public static void main(String[] args) {
         // arrayCopy() : 배열 값을 복사할 때 사용
         // System.arrayCopy(Object src, int srcPos, Object dest, int destPos, int length);
-        // arr1[0]부터의 값을 arr1[4]위치에 길이만큼 복사된다
+        // arr1[0]부터의 값을 arr2[4]위치에 ()길이만큼 복사된다
 //        int[] arr1 = {1,2,3,4,5};
 //        int len = 10;
 //        int[] arr2 = new int[len];
@@ -22,9 +22,17 @@ public class ArrayApp {
 //        int[] arr2 = Arrays.copyOf(arr1, 10);
 //        for(int e : arr2) System.out.print(e + " ");
         // 얕은 복사와 깊은 복사
-        int[] arr1 = {1,2,3,4};
-        int[] arr2 = arr1;
-        arr1[0] = 100; // 얕은 복사
+        int[] arr1 = {1,2,3,4,5};
+        int[] arr2 = new int[arr1.length];
+        //System.arraycopy(arr1, 0,arr2,0, arr1.length); // 실제 값이 복사되므로 깊은 복사
+        //int[] arr2 = Arrays.copyOf(arr1, arr1.length); // 실제 값이 복사되므로 깊은 복사
+        //int[] arr2 = arr1; // 여기서 주소가 복사되기 때문에 얕은 복사가 일어남
+
+        for(int i = 0; i < arr1.length; i++) {
+            arr2[i] = arr1[i];
+        }
+
+        arr1[0] = 100;
         for(int e : arr1) System.out.print(e + " ");
         System.out.println();
         for(int e : arr2) System.out.print(e + " ");

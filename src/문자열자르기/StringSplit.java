@@ -10,26 +10,14 @@ public class StringSplit {
         Scanner sc = new Scanner(System.in);
         System.out.print("시간 입력  : ");
         String time = sc.next();
+        String[] splitTime = time.split(":"); // splitTime 문자열 배열 생성
 
-        String[] result = time.split(":");
+        int hour = Integer.parseInt(splitTime[0]); // 시간에 대한 문자열을 정수로 변환
+        int min = Integer.parseInt(splitTime[1]); // 분에 대한 문자열 정수로 변환
+        int sec = Integer.parseInt(splitTime[2]); // 초에 대한 문자열 정수로 변환
 
-        String hour = "0";
-        String min = "0";
-        String sec = "0";
-
-
-        int intHour = Integer.parseInt(result[0]);
-        int num = 13;
-
-
-        if(result[0].length() == 1) { result[0] = hour + result[0]; }
-        else if(result[1].length() == 1) { result[1] = min + result[1];}
-        else if(result[2].length() == 1) { result[2] = sec + result[2];}
-        else
-
-        if(intHour < num) {
-            System.out.printf("오전 %s시 %s분 %s초", result[0], result[1], result[2]);
-        } else System.out.printf("오후 %s시 %s분 %s초", result[0], result[1], result[2]);
-
+        if(hour > 11) {
+            System.out.printf("오후 %02d시 %02d분 %02d초\n", (hour - 12), min, sec);
+        }else System.out.printf("오전 %02d시 %02d분 %02d초\n", (hour), min, sec);
     }
 }
