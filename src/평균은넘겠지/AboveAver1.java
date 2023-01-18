@@ -14,7 +14,7 @@ import java.util.Scanner;
 // 57.143%
 // 66.667%
 // 55.556%
-public class AboveAver {
+public class AboveAver1 {
     void aver() {
         Scanner sc = new Scanner(System.in);
         System.out.print("학생 수 입력 : ");
