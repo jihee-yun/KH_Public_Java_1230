@@ -13,11 +13,13 @@ public class CarEx implements Comparable<CarEx> {
 
     @Override
     public int compareTo(CarEx o) {
-        if(this.modelYear == o.modelYear) {
-            return this.modelName.compareTo(o.modelName); // 연식이 같으면 이름 사전순 정렬
-        } else if(this.modelYear < o.modelYear) return -1;
-        else return 1;
-//        return this.color.compareTo(o.color);
-//        return this.modelName.compareTo(o.modelName);
+//        if(this.modelYear == o.modelYear) {
+//            return this.modelName.compareTo(o.modelName); // 연식이 같으면 이름 사전순 정렬
+//        } else if(this.modelYear < o.modelYear) return -1;
+//        else return 1;
+      if(this.color.compareTo(o.color) == 0) {
+            return this.modelName.compareTo(o.modelName);
+        }
+        return -1;
     }
 }
