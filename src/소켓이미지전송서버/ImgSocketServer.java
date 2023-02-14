@@ -12,15 +12,18 @@ import java.util.concurrent.CompletionException;
 public class ImgSocketServer {
     public static void main(String[] args) throws IOException {
         int port = 1591;
-        ServerSocket serverSocket = new ServerSocket(port);
         Scanner sc = new Scanner(System.in);
         System.out.print("전송할 파일을 선택하세요(경로/파일명) : ");
         String path = sc.nextLine();
         System.out.println("파일명 : " + path);
         try {
-            Socket socket = serverSocket.accept();
-            System.out.print("[클라이언트 : " + socket.getRemoteSocketAddress() + " 연결]");
-
+            ServerSocket serverSocket = new ServerSocket(port); // IP와
+            while(true) {
+                Socket socket = serverSocket.accept();
+                System.out.print("[클라이언트 : " + socket.getRemoteSocketAddress() + " 연결]");
+                Thread imgTh = new ImageServer(socket, path);
+                imgTh.start();
+            }
         } catch (CompletionException e) {
         } catch (IOException e) {}
 //        while(true) {

@@ -2,7 +2,6 @@ package 람다예제4;
 // 클래스 멤버와 로컬변수 : 클래스 멤버는 제약 없이 사용 가능, 로컬 변수는 제약이 있음
 public class LambdaEx4 {
     public static void main(String[] args) {
-
     }
 }
 interface MyFuncInterface {
